@@ -648,14 +648,14 @@
     assert.equal(_.size(this.syncArgs.options.attrs), 2);
     assert.equal(this.syncArgs.options.attrs.d, 4);
     assert.equal(this.syncArgs.options.attrs.a, undefined);
-    assert.equal(this.ajaxSettings.data, '{"b":2,"d":4}');
+    assert.deepEqual(this.ajaxSettings.data, {b: 2, d: 4});
   });
 
   QUnit.test('save with PATCH and different attrs', function(assert) {
     doc.clear().save({b: 2, d: 4}, {patch: true, attrs: {B: 1, D: 3}});
     assert.equal(this.syncArgs.options.attrs.D, 3);
     assert.equal(this.syncArgs.options.attrs.d, undefined);
-    assert.equal(this.ajaxSettings.data, '{"B":1,"D":3}');
+    assert.deepEqual(this.ajaxSettings.data, {B: 1,D: 3});
     assert.deepEqual(doc.attributes, {b: 2, d: 4});
   });
 
@@ -1037,7 +1037,7 @@
     model.url = '/test';
     model.on('change:x', function() { changed++; });
     model.save({x: 3}, {wait: true});
-    assert.deepEqual(JSON.parse(this.ajaxSettings.data), {x: 3, y: 2});
+    assert.deepEqual(this.ajaxSettings.data, {x: 3, y: 2});
     assert.equal(model.get('x'), 1);
     assert.equal(changed, 0);
     this.syncArgs.options.success({});

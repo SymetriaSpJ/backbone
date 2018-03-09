@@ -46,7 +46,7 @@
     assert.equal(this.ajaxSettings.url, '/library');
     assert.equal(this.ajaxSettings.type, 'POST');
     assert.equal(this.ajaxSettings.dataType, 'json');
-    var data = JSON.parse(this.ajaxSettings.data);
+    var data = this.ajaxSettings.data;
     assert.equal(data.title, 'The Tempest');
     assert.equal(data.author, 'Bill Shakespeare');
     assert.equal(data.length, 123);
@@ -58,7 +58,7 @@
     assert.equal(this.ajaxSettings.url, '/library/1-the-tempest');
     assert.equal(this.ajaxSettings.type, 'PUT');
     assert.equal(this.ajaxSettings.dataType, 'json');
-    var data = JSON.parse(this.ajaxSettings.data);
+    var data = this.ajaxSettings.data;
     assert.equal(data.id, '1-the-tempest');
     assert.equal(data.title, 'The Tempest');
     assert.equal(data.author, 'William Shakespeare');
@@ -75,7 +75,7 @@
     assert.equal(this.ajaxSettings.type, 'POST');
     assert.equal(this.ajaxSettings.dataType, 'json');
     assert.equal(this.ajaxSettings.data._method, 'PUT');
-    var data = JSON.parse(this.ajaxSettings.data.model);
+    var data = this.ajaxSettings.data.model;
     assert.equal(data.id, '2-the-tempest');
     assert.equal(data.author, 'Tim Shakespeare');
     assert.equal(data.length, 123);
@@ -89,7 +89,7 @@
     assert.equal(this.ajaxSettings.url, '/library/2-the-tempest');
     assert.equal(this.ajaxSettings.type, 'POST');
     assert.equal(this.ajaxSettings.contentType, 'application/json');
-    var data = JSON.parse(this.ajaxSettings.data);
+    var data = this.ajaxSettings.data;
     assert.equal(data.id, '2-the-tempest');
     assert.equal(data.author, 'Tim Shakespeare');
     assert.equal(data.length, 123);
@@ -103,7 +103,7 @@
     assert.equal(this.ajaxSettings.url, '/library/2-the-tempest');
     assert.equal(this.ajaxSettings.type, 'PUT');
     assert.equal(this.ajaxSettings.contentType, 'application/x-www-form-urlencoded');
-    var data = JSON.parse(this.ajaxSettings.data.model);
+    var data = this.ajaxSettings.data.model;
     assert.equal(data.id, '2-the-tempest');
     assert.equal(data.author, 'Tim Shakespeare');
     assert.equal(data.length, 123);
